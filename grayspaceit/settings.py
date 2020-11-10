@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #custom apps
     'authentication',
+    #thrid party
+    'rest_framework',
+    'knox',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +133,11 @@ STATICFILES_DIRS = [str(BASE_DIR / "static")]
 
 
 #added by me
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'knox.auth.TokenAuthentication',
+    ]
+}
